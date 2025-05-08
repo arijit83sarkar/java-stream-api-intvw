@@ -48,6 +48,38 @@ System.out.println(average);
 ```
 
 
+### :arrow_right_hook: Write a Stream pipeline to find the MAX and MIN from all elements in a list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 45, 54, 60, 22, 36, 58);
+
+// MAX
+// method #1
+int max = integerList.stream()
+          .max(Comparator.comparing(Integer::valueOf))
+          .get();
+System.out.println(max);
+
+// method #2
+Integer _max= integerList.stream()
+            .reduce((num1, num2) -> num1 > num2 ? num1 : num2)
+            .get();
+System.out.println("Max :: "+_max);
+
+// MIN
+// method #1
+int min = integerList.stream()
+            .min(Comparator.comparing(Integer::valueOf))
+            .get();
+System.out.println(min);
+
+// method #2
+Integer _min=integerList.stream()
+            .reduce((num1, num2) -> num1 < num2 ? num1 : num2)
+            .get();
+System.out.println("Min ::: "+_min);
+```
+
+
 ### :arrow_right_hook: Write a Stream pipeline to find the distinct elements from a list of elements that contains duplicate elements also.
 ```java
 List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 222, 24, 98, 230, 73, -45, 54, 60, 22, 30, 29);
