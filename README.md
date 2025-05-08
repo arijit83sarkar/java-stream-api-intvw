@@ -1,7 +1,7 @@
 # java-stream-api
 ## Java Stream API
 
-### Write a Java Stream pipeline to filter EVEN and ODD numbers from a list and collect them into a new list.
+### :arrow_right_hook: Write a Java Stream pipeline to filter EVEN and ODD numbers from a list and collect them into a new list.
 ```java
 List<Integer> integerList = Arrays.asList(2, 4, 9, 53, 69, 5, 6, 8, 7, 13, 26, 76, 48);
 List<Integer> evenList = integerList.stream()
@@ -9,7 +9,8 @@ List<Integer> evenList = integerList.stream()
                 .toList();
 ```
 
-### Given a list of strings, write a Stream pipeline to transform them to uppercase and collect them into a set.
+
+### :arrow_right_hook: Given a list of strings, write a Stream pipeline to transform them to uppercase and collect them into a set.
 ```java
 List<String> sList = Arrays.asList("aa","bb","cc","dd","ee","aa","cc");
 Set<String> result = sList.stream()
@@ -17,24 +18,26 @@ Set<String> result = sList.stream()
                 .collect(Collectors.toSet());
 ```
 
-### Write a Stream pipeline to find the sum of all elements in a list of integers.
+
+### :arrow_right_hook: Write a Stream pipeline to find the sum of all elements in a list of integers.
 ```java
 List<Integer> integerList = Arrays.asList(2, 4, 1, 5, 6)
 
-// #1
+// method #1
 Integer sum = integerList.stream().reduce((a, b) -> (a + b)).get();
 System.out.println(sum);
 
-// #2
+// method #2
 sum = integerList.stream().reduce(Integer::sum).get();
 System.out.println(sum);
 
-// #3
+// method #3
 Integer sum1 = integerList.stream().mapToInt(Integer::intValue).sum();
 System.out.println(sum1);
 ```
 
-### Write a Stream pipeline to find the average of all elements in a list of integers.
+
+### :arrow_right_hook: Write a Stream pipeline to find the average of all elements in a list of integers.
 ```java
 List<Integer> integerList = Arrays.asList(2, 4, 1, -5, 6, 7, 9);
 Double average = integerList.stream()
@@ -44,7 +47,37 @@ Double average = integerList.stream()
 System.out.println(average);
 ```
 
-### Given a list of objects with a getPrice() method, write a Stream pipeline to collect the average of all elements in a list.
+
+### :arrow_right_hook: Write a Stream pipeline to find the distinct elements from a list of elements that contains duplicate elements also.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 222, 24, 98, 230, 73, -45, 54, 60, 22, 30, 29);
+System.out.println(integerList.stream()
+                .filter(e -> Collections.frequency(integerList, e) == 1)
+                .collect(Collectors.toList())
+        );
+```
+
+
+### :arrow_right_hook: Write a Stream pipeline to find the duplicate elements from a list of elements that contains duplicate elements also.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 222, 24, 98, 230, 73, -45, 54, 60, 22, 30, 29);
+
+// method #1
+System.out.println(integerList.stream()
+                .filter(e -> Collections.frequency(integerList, e) > 1)
+                .collect(Collectors.toSet())
+        );
+
+// method #2
+Set<Integer> numbers = new HashSet<>();
+Set<Integer> duplicates = integerList.stream()
+                .filter(e -> !numbers.add(e))
+                .collect(Collectors.toSet());
+System.out.println(duplicates);
+```
+
+
+### :arrow_right_hook: Given a list of objects with a getPrice() method, write a Stream pipeline to collect the average of all elements in a list.
 ```java
 public class AverageOfNumbers {
     public static void main(String[] args) {
@@ -95,23 +128,27 @@ public class Item {
 }
 ```
 
-### Given a list of objects with a getName() method, write a Stream pipeline to collect the names into a list.
+
+### :arrow_right_hook: Given a list of objects with a getName() method, write a Stream pipeline to collect the names into a list.
 ```java
 ```
 
-### Write a Stream pipeline to count the number of elements in a list that satisfy a certain condition.
+### :arrow_right_hook: Write a Stream pipeline to count the number of elements in a list that satisfy a certain condition.
 ```java
 ```
 
-### Given a list of strings, write a Stream pipeline to find the first string that starts with a specific character.
+
+### :arrow_right_hook: Given a list of strings, write a Stream pipeline to find the first string that starts with a specific character.
 ```java
 ```
 
-### Write a Stream pipeline to group a list of objects by a specific property.
+
+### :arrow_right_hook: Write a Stream pipeline to group a list of objects by a specific property.
 ```java
 ```
 
-### Explain how you would use streams to read a file line by line and process each line.
+
+### :arrow_right_hook: Explain how you would use streams to read a file line by line and process each line.
 ```java
 ```
 
