@@ -109,6 +109,60 @@ System.out.println(duplicates);
 ```
 
 
+### :arrow_right_hook: Write a Stream pipeline to find the HIGHEST number from the list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int highest = integerList.stream()
+              .sorted(Collections.reverseOrder())
+              .distinct()
+              .limit(1)
+              .findFirst()
+              .get();
+System.out.println("Highest number :: " + highest);
+```
+
+
+### :arrow_right_hook: Write a Stream pipeline to find the SECOND HIGHEST number from the list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int highest = integerList.stream()
+              .sorted(Collections.reverseOrder())
+              .distinct()
+              .limit(2)
+              .skip(1)
+              .findFirst()
+              .get();
+System.out.println("Second highest number :: " + highest);
+```
+
+
+### :arrow_right_hook: Write a Stream pipeline to find the LOWEST number from the list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int lowest = integerList.stream()
+              .sorted()
+              .distinct()
+              .limit(1)
+              .findFirst()
+              .get();
+System.out.println("Smallest number :: " + lowest);
+```
+
+
+### :arrow_right_hook: Write a Stream pipeline to find the SECOND LOWEST number from the list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int lowest = integerList.stream()
+              .sorted()
+              .distinct()
+              .limit(2)
+              .skip(1)
+              .findFirst()
+              .get();
+System.out.println("Second smallest number :: " + lowest);
+```
+
+
 ### :arrow_right_hook: Given a list of objects with a getPrice() method, write a Stream pipeline to collect the average of all elements in a list.
 ```java
 public class AverageOfNumbers {
