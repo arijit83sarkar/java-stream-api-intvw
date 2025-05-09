@@ -129,6 +129,49 @@ System.out.println(sortedDescending);
 ```
 
 
+### :arrow_right_hook: Create a Stream pipeline to retrieve the first n elements from a list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> limitList = integerList.stream()
+                            .limit(5)
+                            .collect(Collectors.toList());
+System.out.println(limitList);
+```
+
+
+### :arrow_right_hook: Make a Stream pipeline to retrieve all the elements after n from a list of elements.
+(Create a Stream pipeline to retrieve all the elements after n number of elements from a list of elements.)
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> skipList = integerList.stream()
+                          .skip(5)
+                          .collect(Collectors.toList());
+System.out.println(skipList);
+```
+
+
+### :arrow_right_hook: Create a Stream pipeline that adds the first n elements from a list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int limitSum = integerList.stream()
+                .limit(5)
+                .reduce((a, b) -> (a + b))
+                .get();
+System.out.println(limitSum);
+```
+
+
+### :arrow_right_hook: Create a Stream pipeline to sum all elements after the (n)th element from a list of elements.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+int skipSum = integerList.stream()
+                .skip(5)
+                .reduce((a, b) -> (a + b))
+                .get();
+System.out.println(skipSum);
+```
+
+
 ### :arrow_right_hook: Write a Stream pipeline to find the HIGHEST number from the list of elements.
 ```java
 List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
