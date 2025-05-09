@@ -109,6 +109,26 @@ System.out.println(duplicates);
 ```
 
 
+### :arrow_right_hook: Write a Stream pipeline to sort a list of elements in ASCENDING ORDER.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> sortedAscending = integerList.stream()
+                                  .sorted()
+                                  .collect(Collectors.toList());
+System.out.println(sortedAscending);
+```
+
+
+### :arrow_right_hook: Write a Stream pipeline to sort a list of elements in DESCENDING ORDER.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> sortedDescending = integerList.stream()
+                                  .sorted(Collections.reverseOrder())
+                                  .collect(Collectors.toList());
+System.out.println(sortedDescending);
+```
+
+
 ### :arrow_right_hook: Write a Stream pipeline to find the HIGHEST number from the list of elements.
 ```java
 List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
