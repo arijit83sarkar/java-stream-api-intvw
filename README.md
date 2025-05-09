@@ -161,7 +161,7 @@ System.out.println(limitSum);
 ```
 
 
-### :arrow_right_hook: Create a Stream pipeline to sum all elements after the (n)th element from a list of elements.
+### :arrow_right_hook: Create a Stream pipeline to SUM all elements after the (n)th element from a list of elements.
 ```java
 List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
 int skipSum = integerList.stream()
@@ -169,6 +169,27 @@ int skipSum = integerList.stream()
                 .reduce((a, b) -> (a + b))
                 .get();
 System.out.println(skipSum);
+```
+
+
+### :arrow_right_hook: Create a Stream pipeline to choose the first n elements from a list of elements. Then, after n elements, retrieve all of them from the list.
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> subList = integerList.stream()
+                        .limit(10)
+                        .skip(5)
+                        .collect(Collectors.toList());
+System.out.println(subList);
+```
+
+
+### :arrow_right_hook: Build a Stream pipeline to select the LAST n elements from a list of elements. 
+```java
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 54, 60, 22, 36, 58);
+List<Integer> subList = integerList.stream()
+                      .skip(integerList.size() - 5)
+                      .collect(Collectors.toList());
+System.out.println(subList);
 ```
 
 
