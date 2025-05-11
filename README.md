@@ -40,43 +40,60 @@ System.out.println(sum1);
 ### 4. Write a Stream pipeline to find the average of all elements in a list of integers.
 ```java
 List<Integer> integerList = Arrays.asList(2, 4, 1, -5, 6, 7, 9);
-Double average = integerList.stream()
-                .mapToInt(i -> i)
-                .average()
-                .getAsDouble();
+average = integerList.stream()
+        .collect(Collectors.averagingInt(e -> e));
+System.out.println(average);
+
+List<Double> doubleList = List.of(2.4, 5.6, 9.12, 7.34);
+average = doubleList.stream()
+        .collect(Collectors.averagingDouble(e -> e));
 System.out.println(average);
 ```
 
 
 ### 5. Write a Stream pipeline to find the MAX and MIN from all elements in a list of elements.
 ```java
-List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98, 63, 73, 45, 54, 60, 22, 36, 58);
+List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 122, 25, 98);
 
 // MAX
-// method #1
+// option #1
 int max = integerList.stream()
-          .max(Comparator.comparing(Integer::valueOf))
+          // .max(Comparator.comparing(Integer::valueOf))
+          .max(Comparator.comparing(e -> e))
           .get();
 System.out.println(max);
 
-// method #2
+// option #2
 Integer _max= integerList.stream()
             .reduce((num1, num2) -> num1 > num2 ? num1 : num2)
             .get();
-System.out.println("Max :: "+_max);
+System.out.println("Max :: " + _max);
+
+// option #3
+_max = integerList.stream()
+      .reduce(Integer::max)
+      .get();
+System.out.println("Max :: " + _max);
 
 // MIN
-// method #1
+// option #1
 int min = integerList.stream()
-            .min(Comparator.comparing(Integer::valueOf))
+            // .min(Comparator.comparing(Integer::valueOf))
+            .min(Comparator.comparing(e -> e))
             .get();
 System.out.println(min);
 
-// method #2
+// option #2
 Integer _min=integerList.stream()
             .reduce((num1, num2) -> num1 < num2 ? num1 : num2)
             .get();
-System.out.println("Min ::: "+_min);
+System.out.println("Min ::: " + _min);
+
+// option #3
+_min = integerList.stream()
+       .reduce(Integer::min)
+        .get();
+System.out.println("Min ::: " + _min);
 ```
 
 
