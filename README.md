@@ -111,18 +111,20 @@ System.out.println(integerList.stream()
 ```java
 List<Integer> integerList = Arrays.asList(24, 45, 29, 30, 222, 24, 98, 230, 73, -45, 54, 60, 22, 30, 29);
 
-// method #1
-System.out.println(integerList.stream()
-                .filter(e -> Collections.frequency(integerList, e) > 1)
-                .collect(Collectors.toSet())
-        );
+// option #1
+Set<Integer> distinctList = integerList.stream()
+                            .collect(Collectors.toSet());
+System.out.println("#1 -> " + distinctList);
 
-// method #2
-Set<Integer> numbers = new HashSet<>();
-Set<Integer> duplicates = integerList.stream()
-                .filter(e -> !numbers.add(e))
+// option #2
+distinctList = new HashSet<>(integerList);
+System.out.println("#2 -> " + distinctList);
+
+// option #3
+distinctList = integerList.stream()
+                .distinct()
                 .collect(Collectors.toSet());
-System.out.println(duplicates);
+System.out.println("#3 -> " + distinctList);
 ```
 
 
